@@ -12,11 +12,8 @@ export default {
         outfit: ['var(--font-outfit-sans)'],
       },
       colors: {
-        primary: {
-          '100': '#FFFAEC',
-          '200': '#F5ECD5',
-        },
-        secondary: '#48a6a7',
+        primary: '#48A5E7',
+        secondary: '#34539F',
         tertiary: '#3D3D3D',
       },
     },

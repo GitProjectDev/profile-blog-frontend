@@ -51,21 +51,30 @@ const Header = () => {
     <header
       className={`fixed w-full top-0 left-0 z-50 font-outfit transition-all duration-300 ease-in-out ${
         isScrolled || isMenuOpen
-          ? 'bg-[#fff] shadow-md'
-          : 'bg-transparent shadow-none'
+          ? 'bg-[#fff] shadow-md text-black'
+          : 'bg-transparent md:text-white shadow-none'
       } `}
     >
-      <div className="container mx-auto p-6 md:px-10 lg:px-20 flex justify-between items-center">
-        <Link href="/" className="" onClick={handleNavClick}>
-          <Image src="/logo.png" alt="logo" width={150} height={150} />
+      <div className="container mx-auto p-4 md:px-10 lg:px-20 flex justify-between items-center">
+        <Link href="/" className="flex items-center" onClick={handleNavClick}>
+          <Image
+            src="/tilak.jpg"
+            alt="logo"
+            width={70}
+            height={70}
+            className="rounded-full size-12 md:size-17"
+          />
+          <span className="ml-2 text-xl md:text-2xl lg:text-3xl font-semibold">
+            Tilak Raj Bhandari
+          </span>
         </Link>
-        <nav className="hidden md:flex items-center space-x-8 lg:text-xl font-normal">
+        <nav className="hidden md:flex items-center space-x-4 lg:space-x-8 lg:text-xl font-normal">
           <Link
             href="/"
             className={`${
               isActive('/')
                 ? 'text-secondary cursor-default'
-                : 'text-black hover:border-b-2 border-secondary'
+                : 'hover:border-b-2 border-secondary'
             }`}
           >
             Home
@@ -75,83 +84,42 @@ const Header = () => {
             className={`${
               isActive('/about')
                 ? 'text-secondary cursor-default'
-                : 'text-black hover:border-b-2 border-secondary'
+                : 'hover:border-b-2 border-secondary'
             }`}
           >
             About
           </Link>
-          <div className="relative services-dropdown">
-            <button
-              onClick={() => setIsServicesDropdownOpen(!isServicesDropdownOpen)}
-              className={`flex ${
-                isActive([
-                  '/service-pages/ndis-service',
-                  '/service-pages/social-service',
-                  '/service-pages/nurse-service',
-                ])
-                  ? 'text-secondary hover:border-b-2 border-secondary'
-                  : 'text-black hover:border-b-2 border-secondary'
-              }`}
-            >
-              Services
-              <Image
-                src="/caret.svg"
-                alt="dropdown"
-                width={28}
-                height={28}
-                className={`transition-transform duration-300 ${
-                  isServicesDropdownOpen ? 'rotate-0' : 'rotate-180'
-                }`}
-              />
-            </button>
-
-            {isServicesDropdownOpen && (
-              <div className="absolute -left-20 mt-2 w-48 text-white bg-secondary rounded-md shadow-lg z-50">
-                <Link
-                  href="/service-pages/ndis-service"
-                  onClick={handleNavClick}
-                  className="block px-4 py-2  hover:bg-tertiary hover:rounded-t-md border-b-2 border-white"
-                >
-                  NDIS Services
-                </Link>
-                <Link
-                  href="/service-pages/social-service"
-                  onClick={handleNavClick}
-                  className="block px-4 py-2  hover:bg-tertiary hover:rounded-b-md"
-                >
-                  Social Worker Services
-                </Link>
-                {/* <Link
-                  href="/service-pages/nurse-service"
-                  onClick={handleNavClick}
-                  className="block px-4 py-2  hover:bg-tertiary hover:rounded-b-md"
-                >
-                  Nursing Services
-                </Link> */}
-              </div>
-            )}
-          </div>
-          {/* <Link
-            href="/contact"
+          <Link
+            href="/gallery"
             className={`${
-              isActive('/contact')
+              isActive('/gallery')
+                ? 'text-secondary hover:border-b-2 border-secondary'
+                : ' hover:border-b-2 border-secondary'
+            }`}
+          >
+            Gallery
+          </Link>
+          <Link
+            href="/enquiry"
+            className={`${
+              isActive('/enquiry')
                 ? 'text-secondary cursor-default'
-                : 'text-black hover:border-b-2 border-secondary'
+                : 'hover:border-b-2 border-secondary'
             }`}
           >
             Contact
-          </Link> */}
+          </Link>
           {/* <a
             href={`${process.env.NEXT_PUBLIC_BACKEND_URL}/contact`}
             className="btn"
           >
             Make Enquiry
           </a> */}
-          <Link href="/enquiry" className="btn">
-            {' '}
-            Make Enquiry
-          </Link>
         </nav>
+        <Link href="/subscribe" className="btn hidden md:block">
+          {' '}
+          SUBSCRIBE
+        </Link>
 
         {/* Mobile Dropdown */}
         <div className="md:hidden">
@@ -167,7 +135,7 @@ const Header = () => {
           </button>
         </div>
         <div
-          className={`md:hidden fixed top-[95px] left-0 w-full bg-white text-center transition-opacity duration-300 ease-in-out ${
+          className={`md:hidden fixed top-[80px] left-0 w-full bg-white text-center transition-opacity duration-300 ease-in-out ${
             isMenuOpen
               ? 'opacity-100 shadow-md'
               : 'opacity-0 pointer-events-none'
@@ -197,89 +165,29 @@ const Header = () => {
               About
             </Link>
             <div className="relative services-dropdown w-full">
-              <button
+              <Link
+                href="/gallery"
                 className={`flex items-center justify-center w-full ${
-                  isActive([
-                    '/service-pages/ndis-service',
-                    '/service-pages/social-service',
-                    '/service-pages/nurse-service',
-                  ])
+                  isActive('/gallery')
                     ? 'bg-secondary text-white w-full rounded-lg'
                     : 'hover:bg-secondary hover:text-white w-full rounded-lg'
                 }`}
-                onClick={() =>
-                  setIsServicesDropdownOpen(!isServicesDropdownOpen)
-                }
+                onClick={handleNavClick}
               >
                 Services
-                <Image
-                  src="/caret.svg"
-                  alt="dropdown"
-                  width={28}
-                  height={28}
-                  className={`ml-1 transition-transform duration-300 filter hover:invert ${
-                    isServicesDropdownOpen ? 'rotate-0' : 'rotate-180'
-                  }`}
-                />
-              </button>
-              {isServicesDropdownOpen && (
-                <div className="w-full bg-white border-2 rounded-lg shadow-sm z-50">
-                  <Link
-                    href="/service-pages/ndis-service"
-                    onClick={() => {
-                      handleNavClick()
-                      setIsServicesDropdownOpen(false)
-                    }}
-                    className={`block px-4 py-1 border-b-2 border-secondary text-gray-800 ${
-                      isActive('/service-pages/ndis-service')
-                        ? 'bg-secondary text-white w-full rounded-t-lg'
-                        : 'hover:bg-secondary hover:text-white w-full'
-                    }`}
-                  >
-                    NDIS Services
-                  </Link>
-                  <Link
-                    href="/service-pages/social-service"
-                    onClick={() => {
-                      handleNavClick()
-                      setIsServicesDropdownOpen(false)
-                    }}
-                    className={`block px-4 py-1 text-gray-800 ${
-                      isActive('/service-pages/social-service')
-                        ? 'bg-secondary text-white w-full'
-                        : 'hover:bg-secondary hover:text-white w-full'
-                    }`}
-                  >
-                    Social Worker Services
-                  </Link>
-                  {/* <Link
-                    href="/service-pages/nurse-service"
-                    onClick={() => {
-                      handleNavClick()
-                      setIsServicesDropdownOpen(false)
-                    }}
-                    className={`block px-4 py-1 text-gray-800 ${
-                      isActive('/service-pages/nurse-service')
-                        ? 'bg-secondary text-white w-full rounded-b-lg'
-                        : 'hover:bg-secondary hover:text-white w-full'
-                    }`}
-                  >
-                    Nursing Services
-                  </Link> */}
-                </div>
-              )}
+              </Link>
             </div>
-            {/* <Link
-              href="/contact"
+            <Link
+              href="/enquiry"
               className={`rounded-lg ${
-                isActive('/contact')
-                  ? 'bg-secondary text-white'
-                  : 'hover:bg-secondary hover:text-white'
+                isActive('/enquiry')
+                  ? 'bg-secondary text-white w-full rounded-lg'
+                  : 'hover:bg-secondary hover:text-white w-full rounded-lg'
               }`}
               onClick={handleNavClick}
             >
               Contact
-            </Link> */}
+            </Link>
             {/* <a
               href={`${process.env.NEXT_PUBLIC_BACKEND_URL}/contact`}
               className="btn"
@@ -288,14 +196,14 @@ const Header = () => {
               Make Enquiry
             </a> */}
             <Link
-              href="/enquiry"
+              href="/subscribe"
               onClick={() => {
                 handleNavClick()
                 setIsServicesDropdownOpen(false)
               }}
-              className="btn"
+              className="btn w-full"
             >
-              Make Enquiry
+              SUBSCRIBE
             </Link>
           </nav>
         </div>

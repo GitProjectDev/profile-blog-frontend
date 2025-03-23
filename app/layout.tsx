@@ -54,8 +54,8 @@ const outfitSans = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'Empower Healthcare',
-  description: 'Landing page for healthcare website',
+  title: 'Tilak Raj Bhandari',
+  description: 'Profile and Blog website',
 }
 
 export default function RootLayout({
