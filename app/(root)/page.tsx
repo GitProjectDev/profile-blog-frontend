@@ -15,12 +15,12 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const scrollToServices = () => {
-    const servicesSection = document.getElementById('services')
-    if (servicesSection) {
-      servicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
-  }
+  // const scrollToServices = () => {
+  //   const servicesSection = document.getElementById('services')
+  //   if (servicesSection) {
+  //     servicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  //   }
+  // }
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
