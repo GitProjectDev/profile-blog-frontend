@@ -3,8 +3,8 @@ import React from 'react'
 const Subscribe = () => {
   return (
     <main className="bg-white font-outfit">
-      <section className="bg-primary min-h-screen pt-28">
-        <div className="container mx-auto px-6 md:px-10 lg:px-20 pb-6">
+      <section className="bg-primary min-h-screen pt-28 text-center items-center">
+        {/* <div className="container mx-auto px-6 md:px-10 lg:px-20 pb-6">
           <h1 className="text-3xl md:text-5xl text-white font-semibold mb-6 text-center">
             Our Newsletter
           </h1>
@@ -30,7 +30,8 @@ const Subscribe = () => {
               Subscribe
             </button>
           </form>
-        </div>
+        </div> */}
+        <h1 className="text-5xl">Coming Soon</h1>
       </section>
     </main>
   )

@@ -80,9 +80,11 @@ export default function Home() {
                 integrity and simplicity, he remains a respected and
                 approachable leader.
               </p>
-              <Link href="/about" className="btn mt-6 inline-block ">
-                Read More
-              </Link>
+              <div className="mx-auto md:mx-0S text-center lg:text-left">
+                <Link href="/about" className="btn mt-6 inline-block ">
+                  Read More
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -91,7 +93,7 @@ export default function Home() {
           <div className="container mx-auto px-6 md:px-10 lg:px-20">
             <div className="lg:flex">
               <h2 className="text-[#222] text-3xl md:text-5xl text-center lg:text-left font-semibold mb-8">
-                Recent Activity
+                Companies
               </h2>
             </div>
             <div className="pt-6 grid grid-cols-1 md:grid-cols-2 gap-8 text-white">

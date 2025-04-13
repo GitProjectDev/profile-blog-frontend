@@ -6,7 +6,7 @@ const page = () => {
       <div className="z-10 items-center gap-6 w-full">
         <div className="text-center">
           <h1 className="md:text-black text-3xl md:text-5xl lg:text-6xl font-bold mb-4">
-            No Content
+            Coming Soon
           </h1>
         </div>
       </div>

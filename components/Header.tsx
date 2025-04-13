@@ -52,7 +52,7 @@ const Header = () => {
       className={`fixed w-full top-0 left-0 z-50 font-outfit transition-all duration-300 ease-in-out ${
         isScrolled || isMenuOpen
           ? 'bg-[#fff] shadow-md text-black'
-          : 'bg-transparent md:text-white shadow-none'
+          : 'bg-transparent text-white shadow-none'
       } `}
     >
       <div className="container mx-auto p-4 md:px-10 lg:px-20 flex justify-between items-center">
@@ -90,16 +90,16 @@ const Header = () => {
             About
           </Link>
           <Link
-            href="/blog"
+            href="/blogs"
             className={`${
-              isActive('/blog')
+              isActive('/blogs')
                 ? 'text-secondary cursor-default'
                 : 'hover:border-b-2 border-secondary'
             }`}
           >
-            Blog
+            Publications
           </Link>
-          <Link
+          {/* <Link
             href="/publish"
             className={`${
               isActive('/publish')
@@ -107,18 +107,48 @@ const Header = () => {
                 : 'hover:border-b-2 border-secondary'
             }`}
           >
-            Publishings
-          </Link>
-          <Link
-            href="/gallery"
-            className={`${
-              isActive('/gallery')
-                ? 'text-secondary hover:border-b-2 border-secondary'
-                : ' hover:border-b-2 border-secondary'
-            }`}
-          >
-            Gallery
-          </Link>
+            Publications
+          </Link> */}
+          <div className="relative services-dropdown">
+            <button
+              onClick={() => setIsServicesDropdownOpen(!isServicesDropdownOpen)}
+              className={`flex ${
+                isActive(['/media/photos', '/media/videos'])
+                  ? 'text-secondary hover:border-b-2 border-secondary'
+                  : ' hover:border-b-2 border-secondary'
+              }`}
+            >
+              Media
+              <Image
+                src="/caret.svg"
+                alt="dropdown"
+                width={28}
+                height={28}
+                className={`transition-transform duration-300 ${
+                  isServicesDropdownOpen ? 'rotate-0' : 'rotate-180'
+                }`}
+              />
+            </button>
+
+            {isServicesDropdownOpen && (
+              <div className="absolute -left-20 mt-2 w-48 text-white bg-secondary rounded-md shadow-lg z-50">
+                <Link
+                  href="/media/photos"
+                  onClick={handleNavClick}
+                  className="block px-4 py-2  hover:bg-tertiary hover:rounded-t-md border-b-2 border-white"
+                >
+                  Photos
+                </Link>
+                <Link
+                  href="/media/videos"
+                  onClick={handleNavClick}
+                  className="block px-4 py-2  hover:bg-tertiary hover:rounded-b-md"
+                >
+                  Videos/Interviews
+                </Link>
+              </div>
+            )}
+          </div>
           <Link
             href="/enquiry"
             className={`${
@@ -185,6 +215,17 @@ const Header = () => {
               About
             </Link>
             <Link
+              href="/blogs"
+              className={`rounded-lg w-full ${
+                isActive('/blogs')
+                  ? 'bg-secondary text-white'
+                  : 'hover:bg-secondary hover:text-white'
+              }`}
+              onClick={handleNavClick}
+            >
+              Publications
+            </Link>
+            {/* <Link
               href="/publish"
               className={`flex items-center justify-center w-full ${
                 isActive('/publish')
@@ -193,19 +234,63 @@ const Header = () => {
               }`}
               onClick={handleNavClick}
             >
-              Publishings
-            </Link>
-            <Link
-              href="/gallery"
-              className={`flex items-center justify-center w-full ${
-                isActive('/gallery')
-                  ? 'bg-secondary text-white w-full rounded-lg'
-                  : 'hover:bg-secondary hover:text-white w-full rounded-lg'
-              }`}
-              onClick={handleNavClick}
-            >
-              Gallery
-            </Link>
+              Publications
+            </Link> */}
+            <div className="relative services-dropdown w-full">
+              <button
+                className={`flex items-center justify-center w-full ${
+                  isActive(['/media/photos', '/media/videos'])
+                    ? 'bg-secondary text-white w-full rounded-lg'
+                    : 'hover:bg-secondary hover:text-white w-full rounded-lg'
+                }`}
+                onClick={() =>
+                  setIsServicesDropdownOpen(!isServicesDropdownOpen)
+                }
+              >
+                Media
+                <Image
+                  src="/caret.svg"
+                  alt="dropdown"
+                  width={28}
+                  height={28}
+                  className={`ml-1 transition-transform duration-300 filter hover:invert ${
+                    isServicesDropdownOpen ? 'rotate-0' : 'rotate-180'
+                  }`}
+                />
+              </button>
+              {isServicesDropdownOpen && (
+                <div className="w-full bg-white border-2 rounded-lg shadow-sm z-50">
+                  <Link
+                    href="/media/photos"
+                    onClick={() => {
+                      handleNavClick()
+                      setIsServicesDropdownOpen(false)
+                    }}
+                    className={`block px-4 py-1 border-b-2 border-secondary text-gray-800 ${
+                      isActive('/media/photos')
+                        ? 'bg-secondary text-white w-full rounded-t-lg'
+                        : 'hover:bg-secondary hover:text-white w-full'
+                    }`}
+                  >
+                    Photos
+                  </Link>
+                  <Link
+                    href="/media/videos"
+                    onClick={() => {
+                      handleNavClick()
+                      setIsServicesDropdownOpen(false)
+                    }}
+                    className={`block px-4 py-1 text-gray-800 ${
+                      isActive('/media/videos')
+                        ? 'bg-secondary text-white w-full'
+                        : 'hover:bg-secondary hover:text-white w-full'
+                    }`}
+                  >
+                    Videos/Interviews
+                  </Link>
+                </div>
+              )}
+            </div>
             <Link
               href="/enquiry"
               className={`rounded-lg ${
