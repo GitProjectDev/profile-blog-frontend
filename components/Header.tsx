@@ -68,7 +68,7 @@ const Header = () => {
             Tilak Raj Bhandari
           </span>
         </Link>
-        <nav className="hidden md:flex items-center space-x-4 lg:space-x-8 lg:text-xl font-normal">
+        <nav className="hidden lg:flex items-center space-x-2 lg:space-x-8 lg:text-xl font-normal">
           <Link
             href="/"
             className={`${
@@ -88,6 +88,26 @@ const Header = () => {
             }`}
           >
             About
+          </Link>
+          <Link
+            href="/blog"
+            className={`${
+              isActive('/blog')
+                ? 'text-secondary cursor-default'
+                : 'hover:border-b-2 border-secondary'
+            }`}
+          >
+            Blog
+          </Link>
+          <Link
+            href="/publish"
+            className={`${
+              isActive('/publish')
+                ? 'text-secondary cursor-default'
+                : 'hover:border-b-2 border-secondary'
+            }`}
+          >
+            Publishings
           </Link>
           <Link
             href="/gallery"
@@ -116,13 +136,13 @@ const Header = () => {
             Make Enquiry
           </a> */}
         </nav>
-        <Link href="/subscribe" className="btn hidden md:block">
+        <Link href="/subscribe" className="btn hidden lg:block">
           {' '}
           SUBSCRIBE
         </Link>
 
         {/* Mobile Dropdown */}
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="focus:outline-none"
@@ -135,7 +155,7 @@ const Header = () => {
           </button>
         </div>
         <div
-          className={`md:hidden fixed top-[80px] left-0 w-full bg-white text-center transition-opacity duration-300 ease-in-out ${
+          className={`lg:hidden fixed top-[80px] left-0 w-full bg-white text-center transition-opacity duration-300 ease-in-out ${
             isMenuOpen
               ? 'opacity-100 shadow-md'
               : 'opacity-0 pointer-events-none'
@@ -164,19 +184,28 @@ const Header = () => {
             >
               About
             </Link>
-            <div className="relative services-dropdown w-full">
-              <Link
-                href="/gallery"
-                className={`flex items-center justify-center w-full ${
-                  isActive('/gallery')
-                    ? 'bg-secondary text-white w-full rounded-lg'
-                    : 'hover:bg-secondary hover:text-white w-full rounded-lg'
-                }`}
-                onClick={handleNavClick}
-              >
-                Services
-              </Link>
-            </div>
+            <Link
+              href="/publish"
+              className={`flex items-center justify-center w-full ${
+                isActive('/publish')
+                  ? 'bg-secondary text-white w-full rounded-lg'
+                  : 'hover:bg-secondary hover:text-white w-full rounded-lg'
+              }`}
+              onClick={handleNavClick}
+            >
+              Publishings
+            </Link>
+            <Link
+              href="/gallery"
+              className={`flex items-center justify-center w-full ${
+                isActive('/gallery')
+                  ? 'bg-secondary text-white w-full rounded-lg'
+                  : 'hover:bg-secondary hover:text-white w-full rounded-lg'
+              }`}
+              onClick={handleNavClick}
+            >
+              Gallery
+            </Link>
             <Link
               href="/enquiry"
               className={`rounded-lg ${

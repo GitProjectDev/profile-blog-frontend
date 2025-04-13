@@ -96,22 +96,30 @@ export default function Home() {
             </div>
             <div className="pt-6 grid grid-cols-1 md:grid-cols-2 gap-8 text-white">
               <div className="bg-secondary mx-auto p-6 rounded-lg hover:shadow-xl transition duration-300">
-                <Link href="#">
+                <Link
+                  href="https://www.facebook.com/profile.php?id=100083340757292"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Image
-                    src="/activity-1.png"
+                    src="/activity-1.jpg"
                     alt="activity 1"
-                    width={500}
-                    height={500}
+                    width={300}
+                    height={300}
                   />
                 </Link>
               </div>
               <div className="bg-secondary mx-auto p-6 rounded-lg hover:shadow-xl transition duration-300">
-                <Link href="#">
+                <Link
+                  href="https://www.pearlsoftech.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Image
-                    src="/activity-2.png"
+                    src="/activity-2.jpg"
                     alt="activity 2"
-                    width={500}
-                    height={500}
+                    width={300}
+                    height={300}
                   />
                 </Link>
               </div>
